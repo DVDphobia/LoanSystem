@@ -64,15 +64,16 @@ namespace LoanSystem
                                 MessageBox.Show($"Welcome ADMINISTRATOR, {fullName}!\nYou have special privileges.");
                                 // Open admin dashboard or enable admin features
 
+                                // Open regular user dashboard
+                                Dashboard dashboard = new Dashboard();
+                                dashboard.UserInfo(fullName, fullName);
+                                dashboard.Show();
                             }
                             else
                             {
                                 this.Hide();
                                 MessageBox.Show($"Welcome, {fullName}!");
-                                // Open regular user dashboard
-                                //Dashboard dashboard = new Dashboard();
-                                //dashboard.UpdateUserInfo(fullName, userType);
-                                //dashboard.Show();
+
                                 
 
 
