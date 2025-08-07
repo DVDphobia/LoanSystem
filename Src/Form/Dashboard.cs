@@ -14,12 +14,22 @@ namespace LoanSystem
     public partial class Dashboard : Form
     {
 
-        formDashboard formDashboards;
+        formDashboard   formDashboards;
+        formLoan        formLoan;
         public Dashboard()
         {
             InitializeComponent();
         }
 
+        private void menuContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         private void Dasboard_Load(object sender, EventArgs e)
         {
 
@@ -95,8 +105,8 @@ namespace LoanSystem
                     pnReport.Width = 221;
                     pnRepayAndPay.Width = 219;
                     pnClient.Width = 219;
-                    
-                    
+
+
                 }
             }
         }
@@ -131,14 +141,28 @@ namespace LoanSystem
             formDashboards = null;
         }
 
-        private void menuContainer_Paint(object sender, PaintEventArgs e)
+
+
+        private void LoanBtn_Click(object sender, EventArgs e)
         {
+            if (formLoan == null || formLoan.IsDisposed)
+            {
+                formLoan = new formLoan();
+                formLoan.FormClosed += Loan_FormClosed;
+                this.IsMdiContainer = true;
+                formLoan.MdiParent = this;
+                formLoan.Dock = DockStyle.Fill;
+                formLoan.Show();
+            }
+            else
+            {
+                formLoan.Activate();
+            }
 
         }
-
-        private void sidebar_Paint(object sender, PaintEventArgs e)
+        private void Loan_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            formDashboards = null;
         }
     }
 }

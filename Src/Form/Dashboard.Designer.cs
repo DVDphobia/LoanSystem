@@ -40,7 +40,7 @@
             pnClient = new Panel();
             ClientBtn = new Button();
             pnRepayAndPay = new Panel();
-            RepaymentsAndPaymentsBtn = new Button();
+            loanApplicationBtn = new Button();
             pnLoan = new Panel();
             LoanBtn = new Button();
             pnReport = new Panel();
@@ -170,26 +170,26 @@
             // 
             // pnRepayAndPay
             // 
-            pnRepayAndPay.Controls.Add(RepaymentsAndPaymentsBtn);
+            pnRepayAndPay.Controls.Add(loanApplicationBtn);
             pnRepayAndPay.Location = new Point(3, 60);
             pnRepayAndPay.Name = "pnRepayAndPay";
             pnRepayAndPay.Size = new Size(219, 51);
             pnRepayAndPay.TabIndex = 6;
             // 
-            // RepaymentsAndPaymentsBtn
+            // loanApplicationBtn
             // 
-            RepaymentsAndPaymentsBtn.BackColor = Color.FromArgb(241, 242, 246);
-            RepaymentsAndPaymentsBtn.Dock = DockStyle.Fill;
-            RepaymentsAndPaymentsBtn.ForeColor = Color.Black;
-            RepaymentsAndPaymentsBtn.Image = (Image)resources.GetObject("RepaymentsAndPaymentsBtn.Image");
-            RepaymentsAndPaymentsBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            RepaymentsAndPaymentsBtn.Location = new Point(0, 0);
-            RepaymentsAndPaymentsBtn.Name = "RepaymentsAndPaymentsBtn";
-            RepaymentsAndPaymentsBtn.Padding = new Padding(25, 0, 0, 0);
-            RepaymentsAndPaymentsBtn.Size = new Size(219, 51);
-            RepaymentsAndPaymentsBtn.TabIndex = 3;
-            RepaymentsAndPaymentsBtn.Text = "       Repayments / Payments";
-            RepaymentsAndPaymentsBtn.UseVisualStyleBackColor = false;
+            loanApplicationBtn.BackColor = Color.FromArgb(241, 242, 246);
+            loanApplicationBtn.Dock = DockStyle.Fill;
+            loanApplicationBtn.ForeColor = Color.Black;
+            loanApplicationBtn.Image = (Image)resources.GetObject("loanApplicationBtn.Image");
+            loanApplicationBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            loanApplicationBtn.Location = new Point(0, 0);
+            loanApplicationBtn.Name = "loanApplicationBtn";
+            loanApplicationBtn.Padding = new Padding(20, 0, 0, 0);
+            loanApplicationBtn.Size = new Size(219, 51);
+            loanApplicationBtn.TabIndex = 3;
+            loanApplicationBtn.Text = "Loan Application";
+            loanApplicationBtn.UseVisualStyleBackColor = false;
             // 
             // pnLoan
             // 
@@ -208,11 +208,12 @@
             LoanBtn.ImageAlign = ContentAlignment.MiddleLeft;
             LoanBtn.Location = new Point(0, 0);
             LoanBtn.Name = "LoanBtn";
-            LoanBtn.Padding = new Padding(25, 0, 0, 0);
+            LoanBtn.Padding = new Padding(20, 0, 0, 0);
             LoanBtn.Size = new Size(219, 51);
             LoanBtn.TabIndex = 3;
             LoanBtn.Text = "Loan";
             LoanBtn.UseVisualStyleBackColor = false;
+            LoanBtn.Click += LoanBtn_Click;
             // 
             // pnReport
             // 
@@ -298,7 +299,7 @@
         private Button ClientBtn;
         private FlowLayoutPanel menuContainer;
         private Panel pnRepayAndPay;
-        private Button RepaymentsAndPaymentsBtn;
+        private Button loanApplicationBtn;
         private Panel pnLoan;
         private Button LoanBtn;
         private Panel pnReport;
