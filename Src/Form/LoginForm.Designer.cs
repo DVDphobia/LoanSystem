@@ -95,7 +95,7 @@
             Register.UseVisualStyleBackColor = true;
             Register.Click += Register_Click;
             // 
-            // Form1
+            // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -106,7 +106,7 @@
             Controls.Add(label1);
             Controls.Add(Username);
             Controls.Add(Password);
-            Name = "Form1";
+            Name = "LoginForm";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

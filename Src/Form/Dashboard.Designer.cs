@@ -190,6 +190,7 @@
             loanApplicationBtn.TabIndex = 3;
             loanApplicationBtn.Text = "Loan Application";
             loanApplicationBtn.UseVisualStyleBackColor = false;
+            loanApplicationBtn.Click += loanApplicationBtn_Click;
             // 
             // pnLoan
             // 

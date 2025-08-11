@@ -14,8 +14,9 @@ namespace LoanSystem
     public partial class Dashboard : Form
     {
 
-        formDashboard   formDashboards;
-        formLoan        formLoan;
+        formDashboard formDashboards;
+        formLoan formLoan;
+        formLoanActive formLoanActive;
         public Dashboard()
         {
             InitializeComponent();
@@ -162,7 +163,29 @@ namespace LoanSystem
         }
         private void Loan_FormClosed(object sender, FormClosedEventArgs e)
         {
-            formDashboards = null;
+            formLoan = null;
+        }
+
+        private void loanApplicationBtn_Click(object sender, EventArgs e)
+        {
+            if (formLoanActive == null || formLoanActive.IsDisposed)
+            {
+                formLoanActive = new formLoanActive();
+                formLoanActive.FormClosed += LoanActive_FormClosed;
+                this.IsMdiContainer = true;
+                formLoanActive.MdiParent = this;
+                formLoanActive.Dock = DockStyle.Fill;
+                formLoanActive.Show();
+            }
+            else
+            {
+                formLoanActive.Activate();
+            }
+        }
+
+        private void LoanActive_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formLoanActive = null;
         }
     }
 }

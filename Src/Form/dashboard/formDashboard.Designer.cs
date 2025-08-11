@@ -147,9 +147,9 @@
             labelbEmployee.ForeColor = Color.White;
             labelbEmployee.Location = new Point(3, 16);
             labelbEmployee.Name = "labelbEmployee";
-            labelbEmployee.Size = new Size(42, 32);
+            labelbEmployee.Size = new Size(28, 32);
             labelbEmployee.TabIndex = 2;
-            labelbEmployee.Text = "21";
+            labelbEmployee.Text = "6";
             // 
             // label
             // 
@@ -232,5 +232,7 @@
         private Panel pnEmployee;
         private Label labelbEmployee;
         private Label label;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Test;
     }
 }

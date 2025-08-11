@@ -1,13 +1,15 @@
-﻿using System;
+﻿using LoanSystem.Src.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace LoanSystem
 {
@@ -18,61 +20,35 @@ namespace LoanSystem
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox1_TextChanged(object sender, EventArgs e){}
 
-        }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+        private void textBox3_TextChanged(object sender, EventArgs e){}
 
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        private void textBox4_TextChanged(object sender, EventArgs e){}
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DatabaseHelper databaseHelper = new DatabaseHelper("DESKTOP-QIOPQ2G\\SQLEXPRESS", "Testing");
+
             try
             {
-                string connectionString = @"Server=DESKTOP-QIOPQ2G\SQLEXPRESS;Database=UserDB;Integrated Security=True;";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
+                databaseHelper.register(textBox1.Text, textBox3.Text, textBox4.Text);
+                MessageBox.Show("Register Account Succesfully");
+                this.Hide();
 
-                    string regCommand = "INSERT INTO Users (Username,Password, FullName, Email) VALUES (@Username,@Password, @FullName, @Email)";
-                    using (SqlCommand command = new SqlCommand(regCommand, connection))
-                    {
-                        
-                        command.Parameters.AddWithValue("@Username", textBox2.Text);
-                        command.Parameters.AddWithValue("@FullName", textBox1.Text);
-                        command.Parameters.AddWithValue("@Password", textBox3.Text);
-                        command.Parameters.AddWithValue("@Email", textBox4.Text);
-
-                        int result = command.ExecuteNonQuery();
-                        if (result > 0)
-                        {
-                            MessageBox.Show("Registration successful!");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Registration failed.");
-                        }
-                        connection.Close();
-                    }
-                }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message, "SQL Error");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Register Error");
             }
+
+
+
         }
 
     }

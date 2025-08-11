@@ -1,3 +1,4 @@
+using LoanSystem.Src.Helper;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -7,7 +8,7 @@ namespace LoanSystem
     {
 
 
-        private string connectionString = @"Server=DESKTOP-QIOPQ2G\SQLEXPRESS;Database=UserDB;Integrated Security=True;";
+        
         public LoginForm()
         { 
             InitializeComponent();
@@ -37,64 +38,27 @@ namespace LoanSystem
                 MessageBox.Show("Please enter both username and password");
                 return;
             }
-
+            DatabaseHelper databaseHelper = new DatabaseHelper("DESKTOP-QIOPQ2G\\SQLEXPRESS", "Testing");
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+
+                string role = databaseHelper.login(username, password);
+                if (!string.IsNullOrEmpty(role))
                 {
-                    connection.Open();
-
-                    // First check if the credentials are valid
-                    string loginQuery = "SELECT FullName, Username FROM Users WHERE Username=@username AND Password=@password";
-
-                    SqlCommand command = new SqlCommand(loginQuery, connection);
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            string fullName = reader["FullName"].ToString();
-                            string userType = reader["Username"].ToString().ToLower() == "admin" ? "Admin" : "User";
-
-                            // Different behavior for admin vs regular users
-                            if (userType == "Admin")
-                            {
-                                MessageBox.Show($"Welcome ADMINISTRATOR, {fullName}!\nYou have special privileges.");
-                                // Open admin dashboard or enable admin features
-
-                                // Open regular user dashboard
-                                Dashboard dashboard = new Dashboard();
-                                dashboard.UserInfo(fullName, fullName);
-                                dashboard.Show();
-                            }
-                            else
-                            {
-                                this.Hide();
-                                MessageBox.Show($"Welcome, {fullName}!");
-
-                                
-
-
-
-
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password");
-                        }
-                    }
+                    MessageBox.Show("Login SUS");
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+                    this.Hide();
                 }
+
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Database error: " + ex.Message);
+                MessageBox.Show("Database error: " + ex.Message, "SQL ERROR");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Login Error");
             }
 
 
