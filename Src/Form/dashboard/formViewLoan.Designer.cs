@@ -36,6 +36,8 @@
             columnHeader5 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
             groupBox1 = new GroupBox();
+            btnExportPdf = new Button();
+            btnExportXls = new Button();
             labelNationalID = new Label();
             labelLoanAmount = new Label();
             label6 = new Label();
@@ -103,6 +105,30 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Loan Info";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // btnExportPdf
+            // 
+            btnExportPdf.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportPdf.Location = new Point(601, 17);
+            btnExportPdf.Name = "btnExportPdf";
+            btnExportPdf.Size = new Size(80, 28);
+            btnExportPdf.TabIndex = 8;
+            btnExportPdf.Text = "Export PDF";
+            btnExportPdf.UseVisualStyleBackColor = true;
+            btnExportPdf.Click += btnExportPdf_Click;
+            groupBox1.Controls.Add(btnExportPdf);
+            // 
+            // btnExportXls
+            // 
+            btnExportXls.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportXls.Location = new Point(687, 17);
+            btnExportXls.Name = "btnExportXls";
+            btnExportXls.Size = new Size(80, 28);
+            btnExportXls.TabIndex = 9;
+            btnExportXls.Text = "Export XLS";
+            btnExportXls.UseVisualStyleBackColor = true;
+            btnExportXls.Click += btnExportXls_Click;
+            groupBox1.Controls.Add(btnExportXls);
             // 
             // labelNationalID
             // 
@@ -213,5 +239,7 @@
         private Label label5;
         private Label labelLoanType;
         private Label labelName;
+    private Button btnExportPdf;
+    private Button btnExportXls;
     }
 }

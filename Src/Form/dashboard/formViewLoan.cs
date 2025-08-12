@@ -13,6 +13,7 @@ namespace LoanSystem
 {
     public partial class formViewLoan : Form
     {
+    private string _loanNumber;
         public formViewLoan()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace LoanSystem
         public void showLoneList(string LoanNumber, string loanType, string name , string amount, string nID)
         {
             var loanServiceHelper = new LoanServiceHelper("DESKTOP-QIOPQ2G\\SQLEXPRESS", "Testing", LoanNumber);
+            _loanNumber = LoanNumber;
             labelName.Text = name;
             labelLoanType.Text = loanType;
             labelNationalID.Text = nID;
@@ -38,6 +40,34 @@ namespace LoanSystem
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExportPdf_Click(object sender, EventArgs e)
+        {
+            var exporter = new exportHelper();
+            exporter.ExportListViewToPdf(
+                listView1,
+                "Amortization Schedule",
+                $"Name: {labelName.Text}",
+                $"Loan ID: {_loanNumber}",
+                $"Loan Type: {labelLoanType.Text}",
+                $"National ID: {labelNationalID.Text}",
+                $"Loan Amount: {labelLoanAmount.Text}"
+            );
+        }
+
+        private void btnExportXls_Click(object sender, EventArgs e)
+        {
+            var exporter = new exportHelper();
+            exporter.ExportListViewToXls(
+                listView1,
+                "Amortization Schedule",
+                $"Name: {labelName.Text}",
+                $"Loan ID: {_loanNumber}",
+                $"Loan Type: {labelLoanType.Text}",
+                $"National ID: {labelNationalID.Text}",
+                $"Loan Amount: {labelLoanAmount.Text}"
+            );
         }
     }
 }

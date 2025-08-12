@@ -146,28 +146,6 @@ namespace LoanSystem
 
         private void LoanBtn_Click(object sender, EventArgs e)
         {
-            if (formLoan == null || formLoan.IsDisposed)
-            {
-                formLoan = new formLoan();
-                formLoan.FormClosed += Loan_FormClosed;
-                this.IsMdiContainer = true;
-                formLoan.MdiParent = this;
-                formLoan.Dock = DockStyle.Fill;
-                formLoan.Show();
-            }
-            else
-            {
-                formLoan.Activate();
-            }
-
-        }
-        private void Loan_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formLoan = null;
-        }
-
-        private void loanApplicationBtn_Click(object sender, EventArgs e)
-        {
             if (formLoanActive == null || formLoanActive.IsDisposed)
             {
                 formLoanActive = new formLoanActive();
@@ -180,6 +158,29 @@ namespace LoanSystem
             else
             {
                 formLoanActive.Activate();
+            }
+            
+
+        }
+        private void Loan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formLoan = null;
+        }
+
+        private void loanApplicationBtn_Click(object sender, EventArgs e)
+        {
+            if (formLoan == null || formLoan.IsDisposed)
+            {
+                formLoan = new formLoan();
+                formLoan.FormClosed += Loan_FormClosed;
+                this.IsMdiContainer = true;
+                formLoan.MdiParent = this;
+                formLoan.Dock = DockStyle.Fill;
+                formLoan.Show();
+            }
+            else
+            {
+                formLoan.Activate();
             }
         }
 

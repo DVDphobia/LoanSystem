@@ -131,7 +131,7 @@ namespace LoanSystem
         }
         // Use a correct SQL Server instance name: in a verbatim string (prefixed with @), a single backslash is correct
         string connectionString = @"Server=DESKTOP-QIOPQ2G\SQLEXPRESS;Database=Testing;Integrated Security=True;";
-        pdfHelper pdfHelper = new pdfHelper();
+        exportHelper pdfHelper = new exportHelper();
         private void formLoanActive_Load(object sender, EventArgs e)
         {
             this.ControlBox = false; // Disable the close button

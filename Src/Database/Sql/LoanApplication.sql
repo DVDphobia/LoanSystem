@@ -45,7 +45,8 @@ use Testing;
 
 select * from LoanApplicationInfo;
 select * from Users;
-CREATE DATABASE Library_Management;
+select loanType FROM LoanApplicationInfo WHERE loanNumber = 'LN001';
+--SELECT loanType FROM LoanApplicationInfo WHERE id = 'LN001;
 --DROP TABLE LoanApplicationInfo;
 --DROP TABLE Users;
 
