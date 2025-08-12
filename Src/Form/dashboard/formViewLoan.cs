@@ -168,18 +168,6 @@ END";
             );
         }
 
-        private void btnExportXls_Click(object sender, EventArgs e)
-        {
-            var exporter = new exportHelper();
-            exporter.ExportListViewToXls(
-                listView1,
-                "Amortization Schedule",
-                $"Name: {labelName.Text}",
-                $"Loan ID: {_loanNumber}",
-                $"Loan Type: {labelLoanType.Text}",
-                $"National ID: {labelNationalID.Text}",
-                $"Loan Amount: {labelLoanAmount.Text}"
-            );
-        }
+
     }
 }

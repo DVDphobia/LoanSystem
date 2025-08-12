@@ -1,4 +1,4 @@
-﻿namespace LoanSystem
+﻿﻿namespace LoanSystem
 {
     partial class formLoan
     {
@@ -63,6 +63,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(label14);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(textBoxResidentialAddress);
@@ -92,7 +93,6 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(912, 497);
@@ -266,7 +266,6 @@
             // 
             // textBoxAmount
             // 
-            textBoxAmount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxAmount.Location = new Point(143, 173);
             textBoxAmount.Name = "textBoxAmount";
             textBoxAmount.Size = new Size(249, 23);
@@ -274,7 +273,6 @@
             // 
             // textBoxLoanOfficer
             // 
-            textBoxLoanOfficer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxLoanOfficer.Location = new Point(143, 124);
             textBoxLoanOfficer.Name = "textBoxLoanOfficer";
             textBoxLoanOfficer.Size = new Size(249, 23);
@@ -282,7 +280,6 @@
             // 
             // textBoxCustomerName
             // 
-            textBoxCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxCustomerName.Location = new Point(143, 42);
             textBoxCustomerName.Name = "textBoxCustomerName";
             textBoxCustomerName.Size = new Size(249, 23);
@@ -290,7 +287,6 @@
             // 
             // comboBoxDisburse
             // 
-            comboBoxDisburse.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxDisburse.FormattingEnabled = true;
             comboBoxDisburse.Items.AddRange(new object[] { "CASH", "Mobile Banking", "Bank Treansfer" });
             comboBoxDisburse.Location = new Point(143, 215);
@@ -300,7 +296,6 @@
             // 
             // comboBoxLoanType
             // 
-            comboBoxLoanType.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxLoanType.FormattingEnabled = true;
             comboBoxLoanType.Items.AddRange(new object[] { "Daily", "Personal Loan", "Home Loan" });
             comboBoxLoanType.Location = new Point(143, 85);

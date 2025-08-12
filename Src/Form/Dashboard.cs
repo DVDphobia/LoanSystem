@@ -35,94 +35,26 @@ namespace LoanSystem
         }
         private void Dasboard_Load(object sender, EventArgs e)
         {
-
+            dashboardLoad();
         }
 
         bool menuExpanded = false;
         bool sidebarExpanded = true;
-        public string UserInfo(string Uname, string Utype)
-        {
-            labelUserType.Text = Utype;
-            return labelUserType.Text;
-        }
+        
 
         private void menuTransition_Tick(object sender, EventArgs e)
         {
-            if (!menuExpanded)
-            {
-                // Expand
-                menuContainer.Height += 10;
-                if (menuContainer.Height >= 171)
-                {
-                    menuTransition.Stop();
-                    menuExpanded = true;
-
-                }
-            }
-            else
-            {
-                // Collapse
-                menuContainer.Height -= 10;
-                if (menuContainer.Height <= 56)
-                {
-                    menuTransition.Stop();
-                    menuExpanded = false;
-
-                }
-            }
-        }
-
-
-        private void ClientBtn_Click(object sender, EventArgs e)
-        {
-            menuTransition.Start();
+           
         }
 
         private void sidebarTransition_Tick(object sender, EventArgs e)
         {
-            if (sidebarExpanded)
-            {
-                // Collapse
-                sidebar.Width -= 10;
-                if (sidebar.Width <= 68)
-                {
-                    sidebarExpanded = false;
-                    sidebarTransition.Stop();
-
-                    pnDashboard.Width = 58;
-                    pnReport.Width = 58;
-                    pnClient.Width = 58;
-
-
-                }
-            }
-            else
-            {
-                // Expand
-                sidebar.Width += 10;
-                if (sidebar.Width >= 231)
-                {
-                    sidebarExpanded = true;
-                    sidebarTransition.Stop();
-                    pnDashboard.Width = 221;
-                    pnReport.Width = 221;
-                    pnRepayAndPay.Width = 219;
-                    pnClient.Width = 219;
-
-
-                }
-            }
-        }
-
-
-        private void humberger_Click(object sender, EventArgs e)
-        {
-            sidebarTransition.Start();
         }
 
 
 
-        private void dashboardBtn_Click(object sender, EventArgs e)
+
+        private void dashboardLoad()
         {
             if (formDashboards == null || formDashboards.IsDisposed)
             {
@@ -139,57 +71,6 @@ namespace LoanSystem
             }
         }
 
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formDashboards = null;
-        }
-
-
-
-        private void LoanBtn_Click(object sender, EventArgs e)
-        {
-            if (formLoanActive == null || formLoanActive.IsDisposed)
-            {
-                formLoanActive = new formLoanActive();
-                formLoanActive.FormClosed += LoanActive_FormClosed;
-                this.IsMdiContainer = true;
-                formLoanActive.MdiParent = this;
-                formLoanActive.Dock = DockStyle.Fill;
-                formLoanActive.Show();
-            }
-            else
-            {
-                formLoanActive.Activate();
-            }
-
-
-        }
-        private void Loan_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formLoan = null;
-        }
-
-        private void loanApplicationBtn_Click(object sender, EventArgs e)
-        {
-            if (formLoan == null || formLoan.IsDisposed)
-            {
-                formLoan = new formLoan();
-                formLoan.FormClosed += Loan_FormClosed;
-                this.IsMdiContainer = true;
-                formLoan.MdiParent = this;
-                formLoan.Dock = DockStyle.Fill;
-                formLoan.Show();
-            }
-            else
-            {
-                formLoan.Activate();
-            }
-        }
-
-        private void LoanActive_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            formLoanActive = null;
-        }
 
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
@@ -242,6 +123,21 @@ namespace LoanSystem
             {
                 formLoanActive.Activate();
             }
+        }
+
+        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formDashboards = null;
+        }
+
+        private void Loan_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formLoan = null;
+        }
+
+        private void LoanActive_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            formLoanActive = null;
         }
     }
 }

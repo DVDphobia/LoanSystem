@@ -36,8 +36,6 @@
             columnHeader5 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
             groupBox1 = new GroupBox();
-            btnExportPdf = new Button();
-            btnExportXls = new Button();
             labelNationalID = new Label();
             labelLoanAmount = new Label();
             label6 = new Label();
@@ -46,13 +44,15 @@
             labelName = new Label();
             label2 = new Label();
             label1 = new Label();
+            btnExportPdf = new Button();
+            btnViewHistory = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
             listView1.CheckBoxes = true;
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
             listView1.GridLines = true;
             listView1.Location = new Point(12, 129);
             listView1.Name = "listView1";
@@ -100,6 +100,8 @@
             groupBox1.Controls.Add(labelName);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Controls.Add(btnExportPdf);
+            groupBox1.Controls.Add(btnViewHistory);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(776, 100);
@@ -107,43 +109,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Loan Info";
             groupBox1.Enter += groupBox1_Enter;
-            // 
-            // btnExportPdf
-            // 
-            btnExportPdf.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExportPdf.Location = new Point(601, 17);
-            btnExportPdf.Name = "btnExportPdf";
-            btnExportPdf.Size = new Size(80, 28);
-            btnExportPdf.TabIndex = 8;
-            btnExportPdf.Text = "Export PDF";
-            btnExportPdf.UseVisualStyleBackColor = true;
-            btnExportPdf.Click += btnExportPdf_Click;
-            groupBox1.Controls.Add(btnExportPdf);
-            // 
-            // btnViewHistory
-            // 
-            btnViewHistory = new Button();
-            btnViewHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnViewHistory.Location = new Point(601, 55);
-            btnViewHistory.Name = "btnViewHistory";
-            btnViewHistory.Size = new Size(166, 28);
-            btnViewHistory.TabIndex = 10;
-            btnViewHistory.Text = "View Payment History";
-            btnViewHistory.UseVisualStyleBackColor = true;
-            btnViewHistory.Click += btnViewHistory_Click;
-            groupBox1.Controls.Add(btnViewHistory);
-            // 
-            // btnExportXls
-            // 
-            btnExportXls.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnExportXls.Location = new Point(687, 17);
-            btnExportXls.Name = "btnExportXls";
-            btnExportXls.Size = new Size(80, 28);
-            btnExportXls.TabIndex = 9;
-            btnExportXls.Text = "Export XLS";
-            btnExportXls.UseVisualStyleBackColor = true;
-            btnExportXls.Click += btnExportXls_Click;
-            groupBox1.Controls.Add(btnExportXls);
             // 
             // labelNationalID
             // 
@@ -220,6 +185,28 @@
             label1.Size = new Size(67, 21);
             label1.TabIndex = 0;
             label1.Text = "Name:*";
+            // 
+            // btnExportPdf
+            // 
+            btnExportPdf.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnExportPdf.Location = new Point(601, 17);
+            btnExportPdf.Name = "btnExportPdf";
+            btnExportPdf.Size = new Size(166, 28);
+            btnExportPdf.TabIndex = 8;
+            btnExportPdf.Text = "Export PDF";
+            btnExportPdf.UseVisualStyleBackColor = true;
+            btnExportPdf.Click += btnExportPdf_Click;
+            // 
+            // btnViewHistory
+            // 
+            btnViewHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnViewHistory.Location = new Point(601, 55);
+            btnViewHistory.Name = "btnViewHistory";
+            btnViewHistory.Size = new Size(166, 28);
+            btnViewHistory.TabIndex = 10;
+            btnViewHistory.Text = "View Payment History";
+            btnViewHistory.UseVisualStyleBackColor = true;
+            btnViewHistory.Click += btnViewHistory_Click;
             // 
             // formViewLoan
             // 
