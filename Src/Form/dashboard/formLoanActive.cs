@@ -224,11 +224,6 @@ namespace LoanSystem
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         // Simple search/filter across key columns using the text in the search box

@@ -39,24 +39,24 @@
             // 
             // Password
             // 
-            Password.Location = new Point(228, 92);
+            Password.Location = new Point(81, 41);
             Password.Name = "Password";
-            Password.Size = new Size(320, 23);
+            Password.Size = new Size(326, 23);
             Password.TabIndex = 0;
             Password.TextChanged += textBox1_TextChanged;
             // 
             // Username
             // 
-            Username.Location = new Point(228, 49);
+            Username.Location = new Point(81, 12);
             Username.Name = "Username";
-            Username.Size = new Size(320, 23);
+            Username.Size = new Size(326, 23);
             Username.TabIndex = 1;
             Username.TextChanged += Username_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(162, 57);
+            label1.Location = new Point(15, 20);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 2;
@@ -65,7 +65,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(165, 100);
+            label2.Location = new Point(18, 49);
             label2.Name = "label2";
             label2.Size = new Size(57, 15);
             label2.TabIndex = 3;
@@ -73,9 +73,9 @@
             // 
             // Login
             // 
-            Login.Location = new Point(419, 121);
+            Login.Location = new Point(247, 70);
             Login.Name = "Login";
-            Login.Size = new Size(129, 23);
+            Login.Size = new Size(160, 23);
             Login.TabIndex = 4;
             Login.Text = "Login";
             Login.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@
             // 
             // Register
             // 
-            Register.Location = new Point(266, 121);
+            Register.Location = new Point(81, 70);
             Register.Name = "Register";
-            Register.Size = new Size(131, 23);
+            Register.Size = new Size(160, 23);
             Register.TabIndex = 5;
             Register.Text = "Register";
             Register.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(572, 234);
+            ClientSize = new Size(433, 137);
             Controls.Add(Register);
             Controls.Add(Login);
             Controls.Add(label2);

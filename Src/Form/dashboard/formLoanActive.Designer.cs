@@ -32,6 +32,7 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             groupBox1 = new GroupBox();
+            searchLoanbtn = new Button();
             dataGridViewLoanActive = new DataGridView();
             DateCol = new DataGridViewTextBoxColumn();
             LoanNumberCol = new DataGridViewTextBoxColumn();
@@ -43,8 +44,6 @@
             ActionCol = new DataGridViewTextBoxColumn();
             textBox1 = new TextBox();
             label2 = new Label();
-            searchLoanbtn = new Button();
-            button2 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLoanActive).BeginInit();
             SuspendLayout();
@@ -73,6 +72,17 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Active Loans";
+            // 
+            // searchLoanbtn
+            // 
+            searchLoanbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            searchLoanbtn.Location = new Point(992, 27);
+            searchLoanbtn.Name = "searchLoanbtn";
+            searchLoanbtn.Size = new Size(75, 23);
+            searchLoanbtn.TabIndex = 4;
+            searchLoanbtn.Text = "Search";
+            searchLoanbtn.UseVisualStyleBackColor = true;
+            searchLoanbtn.Click += searchLoanbtn_Click;
             // 
             // dataGridViewLoanActive
             // 
@@ -164,33 +174,11 @@
             label2.TabIndex = 1;
             label2.Text = "Search ";
             // 
-            // searchLoanbtn
-            // 
-            searchLoanbtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            searchLoanbtn.Location = new Point(992, 27);
-            searchLoanbtn.Name = "searchLoanbtn";
-            searchLoanbtn.Size = new Size(75, 23);
-            searchLoanbtn.TabIndex = 4;
-            searchLoanbtn.Text = "Search";
-            searchLoanbtn.UseVisualStyleBackColor = true;
-            searchLoanbtn.Click += searchLoanbtn_Click;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(159, 18);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // formLoanActive
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1120, 680);
-            Controls.Add(button2);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
