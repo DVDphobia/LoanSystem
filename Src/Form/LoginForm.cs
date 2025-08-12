@@ -42,14 +42,18 @@ namespace LoanSystem
             try
             {
 
-                string role = databaseHelper.login(username, password);
-                if (!string.IsNullOrEmpty(role))
+                string status = databaseHelper.login(username, password);
+                if (status == "success")
                 {
-                    MessageBox.Show("Login SUS");
+                    MessageBox.Show("Login successful");
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                     this.Hide();
+                } else
+                {
+                    MessageBox.Show("Invalid username or password");
                 }
+
 
             }
             catch (SqlException ex)

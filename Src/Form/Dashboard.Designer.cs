@@ -43,12 +43,14 @@
             loanApplicationBtn = new Button();
             pnLoan = new Panel();
             LoanBtn = new Button();
-            pnReport = new Panel();
-            reportBtn = new Button();
             menuTransition = new System.Windows.Forms.Timer(components);
             sidebarTransition = new System.Windows.Forms.Timer(components);
             menuStrip1 = new MenuStrip();
-            fileToolStripMenuItem = new ToolStripMenuItem();
+            fIleToolStripMenuItem = new ToolStripMenuItem();
+            exitToolStripMenuItem = new ToolStripMenuItem();
+            dashboardToolStripMenuItem = new ToolStripMenuItem();
+            loanApplicationToolStripMenuItem = new ToolStripMenuItem();
+            loanActiveToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)humberger).BeginInit();
             sidebar.SuspendLayout();
             panel1.SuspendLayout();
@@ -57,7 +59,6 @@
             pnClient.SuspendLayout();
             pnRepayAndPay.SuspendLayout();
             pnLoan.SuspendLayout();
-            pnReport.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,7 +79,6 @@
             sidebar.Controls.Add(panel1);
             sidebar.Controls.Add(pnDashboard);
             sidebar.Controls.Add(menuContainer);
-            sidebar.Controls.Add(pnReport);
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 24);
             sidebar.Name = "sidebar";
@@ -216,29 +216,6 @@
             LoanBtn.UseVisualStyleBackColor = false;
             LoanBtn.Click += LoanBtn_Click;
             // 
-            // pnReport
-            // 
-            pnReport.Controls.Add(reportBtn);
-            pnReport.Location = new Point(3, 154);
-            pnReport.Name = "pnReport";
-            pnReport.Size = new Size(221, 51);
-            pnReport.TabIndex = 6;
-            // 
-            // reportBtn
-            // 
-            reportBtn.BackColor = Color.FromArgb(241, 242, 246);
-            reportBtn.Dock = DockStyle.Fill;
-            reportBtn.ForeColor = Color.Black;
-            reportBtn.Image = (Image)resources.GetObject("reportBtn.Image");
-            reportBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            reportBtn.Location = new Point(0, 0);
-            reportBtn.Name = "reportBtn";
-            reportBtn.Padding = new Padding(15, 0, 0, 0);
-            reportBtn.Size = new Size(221, 51);
-            reportBtn.TabIndex = 3;
-            reportBtn.Text = "Report";
-            reportBtn.UseVisualStyleBackColor = false;
-            // 
             // menuTransition
             // 
             menuTransition.Interval = 10;
@@ -251,18 +228,46 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fIleToolStripMenuItem, dashboardToolStripMenuItem, loanApplicationToolStripMenuItem, loanActiveToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1151, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // fIleToolStripMenuItem
             // 
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(37, 20);
-            fileToolStripMenuItem.Text = "File";
+            fIleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            fIleToolStripMenuItem.Name = "fIleToolStripMenuItem";
+            fIleToolStripMenuItem.Size = new Size(37, 20);
+            fIleToolStripMenuItem.Text = "FIle";
+            // 
+            // exitToolStripMenuItem
+            // 
+            exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            exitToolStripMenuItem.Size = new Size(92, 22);
+            exitToolStripMenuItem.Text = "Exit";
+            // 
+            // dashboardToolStripMenuItem
+            // 
+            dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
+            dashboardToolStripMenuItem.Size = new Size(76, 20);
+            dashboardToolStripMenuItem.Text = "Dashboard";
+            dashboardToolStripMenuItem.Click += dashboardToolStripMenuItem_Click;
+            // 
+            // loanApplicationToolStripMenuItem
+            // 
+            loanApplicationToolStripMenuItem.Name = "loanApplicationToolStripMenuItem";
+            loanApplicationToolStripMenuItem.Size = new Size(109, 20);
+            loanApplicationToolStripMenuItem.Text = "Loan Application";
+            loanApplicationToolStripMenuItem.Click += loanApplicationToolStripMenuItem_Click_1;
+            // 
+            // loanActiveToolStripMenuItem
+            // 
+            loanActiveToolStripMenuItem.Name = "loanActiveToolStripMenuItem";
+            loanActiveToolStripMenuItem.Size = new Size(81, 20);
+            loanActiveToolStripMenuItem.Text = "Loan Active";
+            loanActiveToolStripMenuItem.Click += loanActiveToolStripMenuItem_Click_1;
             // 
             // Dashboard
             // 
@@ -284,7 +289,6 @@
             pnClient.ResumeLayout(false);
             pnRepayAndPay.ResumeLayout(false);
             pnLoan.ResumeLayout(false);
-            pnReport.ResumeLayout(false);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -309,8 +313,12 @@
         private System.Windows.Forms.Timer menuTransition;
         private System.Windows.Forms.Timer sidebarTransition;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
         private Panel panel1;
         private Label labelUserType;
+        private ToolStripMenuItem fIleToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem dashboardToolStripMenuItem;
+        private ToolStripMenuItem loanApplicationToolStripMenuItem;
+        private ToolStripMenuItem loanActiveToolStripMenuItem;
     }
 }

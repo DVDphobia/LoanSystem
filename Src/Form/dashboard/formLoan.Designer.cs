@@ -92,12 +92,13 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(912, 497);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Loan Application";
             // 
             // label14
             // 
@@ -119,6 +120,7 @@
             // 
             // textBoxResidentialAddress
             // 
+            textBoxResidentialAddress.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxResidentialAddress.Location = new Point(580, 407);
             textBoxResidentialAddress.Name = "textBoxResidentialAddress";
             textBoxResidentialAddress.Size = new Size(249, 23);
@@ -126,6 +128,7 @@
             // 
             // textBoxPostalCode
             // 
+            textBoxPostalCode.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxPostalCode.Location = new Point(580, 356);
             textBoxPostalCode.Name = "textBoxPostalCode";
             textBoxPostalCode.Size = new Size(249, 23);
@@ -133,6 +136,7 @@
             // 
             // Submitbtn
             // 
+            Submitbtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Submitbtn.Location = new Point(30, 468);
             Submitbtn.Name = "Submitbtn";
             Submitbtn.Size = new Size(362, 23);
@@ -143,6 +147,7 @@
             // 
             // textBoxEmail
             // 
+            textBoxEmail.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxEmail.Location = new Point(580, 315);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.Size = new Size(249, 23);
@@ -150,6 +155,7 @@
             // 
             // textBoxPhone
             // 
+            textBoxPhone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxPhone.Location = new Point(580, 271);
             textBoxPhone.Name = "textBoxPhone";
             textBoxPhone.Size = new Size(249, 23);
@@ -157,6 +163,7 @@
             // 
             // textBoxNationalid
             // 
+            textBoxNationalid.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxNationalid.Location = new Point(580, 220);
             textBoxNationalid.Name = "textBoxNationalid";
             textBoxNationalid.Size = new Size(249, 23);
@@ -164,6 +171,7 @@
             // 
             // textBoxCity
             // 
+            textBoxCity.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxCity.Location = new Point(580, 170);
             textBoxCity.Name = "textBoxCity";
             textBoxCity.Size = new Size(249, 23);
@@ -171,6 +179,7 @@
             // 
             // textBoxCountry
             // 
+            textBoxCountry.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxCountry.Location = new Point(580, 124);
             textBoxCountry.Name = "textBoxCountry";
             textBoxCountry.Size = new Size(249, 23);
@@ -178,6 +187,7 @@
             // 
             // textBoxWitnessName
             // 
+            textBoxWitnessName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxWitnessName.Location = new Point(580, 85);
             textBoxWitnessName.Name = "textBoxWitnessName";
             textBoxWitnessName.Size = new Size(249, 23);
@@ -185,6 +195,7 @@
             // 
             // textBoxWitnessType
             // 
+            textBoxWitnessType.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxWitnessType.Location = new Point(580, 47);
             textBoxWitnessType.Name = "textBoxWitnessType";
             textBoxWitnessType.Size = new Size(249, 23);
@@ -255,6 +266,7 @@
             // 
             // textBoxAmount
             // 
+            textBoxAmount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxAmount.Location = new Point(143, 173);
             textBoxAmount.Name = "textBoxAmount";
             textBoxAmount.Size = new Size(249, 23);
@@ -262,6 +274,7 @@
             // 
             // textBoxLoanOfficer
             // 
+            textBoxLoanOfficer.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxLoanOfficer.Location = new Point(143, 124);
             textBoxLoanOfficer.Name = "textBoxLoanOfficer";
             textBoxLoanOfficer.Size = new Size(249, 23);
@@ -269,6 +282,7 @@
             // 
             // textBoxCustomerName
             // 
+            textBoxCustomerName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             textBoxCustomerName.Location = new Point(143, 42);
             textBoxCustomerName.Name = "textBoxCustomerName";
             textBoxCustomerName.Size = new Size(249, 23);
@@ -276,6 +290,7 @@
             // 
             // comboBoxDisburse
             // 
+            comboBoxDisburse.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxDisburse.FormattingEnabled = true;
             comboBoxDisburse.Items.AddRange(new object[] { "CASH", "Mobile Banking", "Bank Treansfer" });
             comboBoxDisburse.Location = new Point(143, 215);
@@ -285,8 +300,9 @@
             // 
             // comboBoxLoanType
             // 
+            comboBoxLoanType.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxLoanType.FormattingEnabled = true;
-            comboBoxLoanType.Items.AddRange(new object[] { "Daily", "12 Month Loan" });
+            comboBoxLoanType.Items.AddRange(new object[] { "Daily", "Personal Loan", "Home Loan" });
             comboBoxLoanType.Location = new Point(143, 85);
             comboBoxLoanType.Name = "comboBoxLoanType";
             comboBoxLoanType.Size = new Size(249, 23);

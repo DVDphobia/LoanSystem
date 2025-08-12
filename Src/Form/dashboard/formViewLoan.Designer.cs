@@ -52,6 +52,7 @@
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
+            listView1.CheckBoxes = true;
             listView1.GridLines = true;
             listView1.Location = new Point(12, 129);
             listView1.Name = "listView1";
@@ -59,6 +60,7 @@
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
+            listView1.ItemChecked += listView1_ItemChecked;
             // 
             // columnHeader1
             // 
@@ -117,6 +119,19 @@
             btnExportPdf.UseVisualStyleBackColor = true;
             btnExportPdf.Click += btnExportPdf_Click;
             groupBox1.Controls.Add(btnExportPdf);
+            // 
+            // btnViewHistory
+            // 
+            btnViewHistory = new Button();
+            btnViewHistory.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnViewHistory.Location = new Point(601, 55);
+            btnViewHistory.Name = "btnViewHistory";
+            btnViewHistory.Size = new Size(166, 28);
+            btnViewHistory.TabIndex = 10;
+            btnViewHistory.Text = "View Payment History";
+            btnViewHistory.UseVisualStyleBackColor = true;
+            btnViewHistory.Click += btnViewHistory_Click;
+            groupBox1.Controls.Add(btnViewHistory);
             // 
             // btnExportXls
             // 
@@ -241,5 +256,6 @@
         private Label labelName;
     private Button btnExportPdf;
     private Button btnExportXls;
+    private Button btnViewHistory;
     }
 }

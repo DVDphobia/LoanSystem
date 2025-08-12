@@ -148,8 +148,7 @@ namespace LoanSystem
                     conn.Open();
                     string query = @"
                SELECT [date], [loanNumber], [officer], [amount],
-                   [amount] AS [PrincipalAmount], [name], [loanType],
-                   'N/A' AS [repayment]
+                   [amount] AS [PrincipalAmount], [name], [loanType]
                FROM LoanApplicationInfo";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -167,7 +166,6 @@ namespace LoanSystem
                             row.Cells["PrincipalAmountCol"].Value = reader["PrincipalAmount"];
                             row.Cells["NameLoanerCol"].Value = reader["name"];
                             row.Cells["LoanTypeCol"].Value = reader["loanType"];
-                            row.Cells["RepaymentCol"].Value = reader["repayment"];
                         }
                     }
                 }
@@ -236,7 +234,16 @@ namespace LoanSystem
         // Simple search/filter across key columns using the text in the search box
         private void searchLoanbtn_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                var keyword = textBox1.Text.Trim();
+            DatabaseHelper helper = new DatabaseHelper("DESKTOP-QIOPQ2G\\SQLEXPRESS", "Testing");
+                helper.SearchLoan(keyword, dataGridViewLoanActive);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Search failed: " + ex.Message);
+            }
         }
     }
 }

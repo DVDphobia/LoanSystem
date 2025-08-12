@@ -54,7 +54,7 @@ namespace LoanSystem.Src.Helper
 
         public string login(string username, string password)
         {
-            string query = $"SELECT Role FROM Users WHERE Username = @Username AND Password = @Password";
+            const string query = "SELECT 1 FROM Users WHERE Username = @Username AND Password = @Password";
 
             try
             {
@@ -67,16 +67,16 @@ namespace LoanSystem.Src.Helper
                     connection.Open();
                     object result = command.ExecuteScalar();
 
-                    return result?.ToString(); // Returns role or null if not found
+                    return result != null ? "success" : "failed";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Login error: {ex.Message}");
-                return null;
+                return "failed";
             }
 
-           
+
         }
         public bool register(string username, string password, string email)
         {
@@ -111,58 +111,72 @@ namespace LoanSystem.Src.Helper
             }
         }
 
-
         public void SearchLoan(string keyword, DataGridView dgv)
         {
-            string query = @"
-        SELECT [date], [loanNumber], [officer], [amount], 
-               [amount] AS [PrincipalAmount], [name], [loanType], 
-               'N/A' AS [repayment] 
-        FROM LoanApplicationInfo 
-        WHERE loanNumber LIKE @keyword
-           OR name LIKE @keyword
-           OR officer LIKE @keyword";
-
             try
             {
                 dgv.Rows.Clear();
 
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                using (SqlCommand command = new SqlCommand(query, connection))
+                string query;
+                using var conn = new SqlConnection(connectionString);
+                using var cmd = new SqlCommand();
+                cmd.Connection = conn;
+
+                if (string.IsNullOrWhiteSpace(keyword))
                 {
-                    command.Parameters.AddWithValue("@keyword", "%" + keyword + "%");
-                    connection.Open();
+                    // Load all loans
+                    query = @"SELECT [date], [loanNumber], [officer], [amount], [amount] AS [PrincipalAmount], 
+                             [name], [loanType]
+                      FROM LoanApplicationInfo
+                      ORDER BY [date] DESC";
+                }
+                else if (long.TryParse(keyword, out long num))
+                {
+                    // Search numeric safely — works even if columns are varchar
+                    query = @"SELECT [date], [loanNumber], [officer], [amount], [amount] AS [PrincipalAmount], 
+                             [name], [loanType]
+                      FROM LoanApplicationInfo
+                      WHERE TRY_CAST(loanNumber AS bigint) = @loanNumber 
+                         OR TRY_CAST(amount AS bigint) = @amount
+                      ORDER BY [date] DESC";
 
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int rowIndex = dgv.Rows.Add();
-                            DataGridViewRow row = dgv.Rows[rowIndex];
+                    cmd.Parameters.AddWithValue("@loanNumber", num);
+                    cmd.Parameters.AddWithValue("@amount", num);
+                }
+                else
+                {
+                    // Search text
+                    query = @"SELECT [date], [loanNumber], [officer], [amount], [amount] AS [PrincipalAmount], 
+                             [name], [loanType]
+                      FROM LoanApplicationInfo
+                      WHERE name LIKE @name
+                      ORDER BY [date] DESC";
 
-                            row.Cells["DateCol"].Value = reader["date"] == DBNull.Value
-                                ? ""
-                                : Convert.ToDateTime(reader["date"]).ToString("yyyy-MM-dd");
+                    cmd.Parameters.AddWithValue("@name", "%" + keyword + "%");
+                }
 
-                            row.Cells["LoanNumberCol"].Value = reader["loanNumber"] == DBNull.Value ? "" : reader["loanNumber"];
-                            row.Cells["OfficerCol"].Value = reader["officer"] == DBNull.Value ? "" : reader["officer"];
-                            row.Cells["AmountCol"].Value = reader["amount"] == DBNull.Value ? "" : reader["amount"];
-                            row.Cells["PrincipalAmountCol"].Value = reader["PrincipalAmount"] == DBNull.Value ? "" : reader["PrincipalAmount"];
-                            row.Cells["NameLoanerCol"].Value = reader["name"] == DBNull.Value ? "" : reader["name"];
-                            row.Cells["LoanTypeCol"].Value = reader["loanType"] == DBNull.Value ? "" : reader["loanType"];
-                            row.Cells["RepaymentCol"].Value = reader["repayment"] == DBNull.Value ? "" : reader["repayment"];
-                        }
-                    }
+                cmd.CommandText = query;
+                conn.Open();
+
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    dgv.Rows.Add(
+                        reader["date"] == DBNull.Value ? "" : Convert.ToDateTime(reader["date"]).ToString("yyyy-MM-dd"),
+                        reader["loanNumber"] == DBNull.Value ? "" : reader["loanNumber"],
+                        reader["officer"] == DBNull.Value ? "" : reader["officer"],
+                        reader["amount"] == DBNull.Value ? "" : reader["amount"],
+                        reader["PrincipalAmount"] == DBNull.Value ? "" : reader["PrincipalAmount"],
+                        reader["name"] == DBNull.Value ? "" : reader["name"],
+                        reader["loanType"] == DBNull.Value ? "" : reader["loanType"]
+                    );
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Search error: {ex.Message}\n\n{ex.StackTrace}");
+                MessageBox.Show($"Search error: {ex.Message}");
             }
         }
-
-        
-
 
 
     }

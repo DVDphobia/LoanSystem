@@ -40,7 +40,6 @@
             PrincipalAmountCol = new DataGridViewTextBoxColumn();
             NameLoanerCol = new DataGridViewTextBoxColumn();
             LoanTypeCol = new DataGridViewTextBoxColumn();
-            RepaymentCol = new DataGridViewTextBoxColumn();
             ActionCol = new DataGridViewTextBoxColumn();
             textBox1 = new TextBox();
             label2 = new Label();
@@ -84,7 +83,7 @@
             dataGridViewLoanActive.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewLoanActive.BackgroundColor = SystemColors.Control;
             dataGridViewLoanActive.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewLoanActive.Columns.AddRange(new DataGridViewColumn[] { DateCol, LoanNumberCol, OfficerCol, AmountCol, PrincipalAmountCol, NameLoanerCol, LoanTypeCol, RepaymentCol, ActionCol });
+            dataGridViewLoanActive.Columns.AddRange(new DataGridViewColumn[] { DateCol, LoanNumberCol, OfficerCol, AmountCol, PrincipalAmountCol, NameLoanerCol, LoanTypeCol, ActionCol });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -136,11 +135,6 @@
             // 
             LoanTypeCol.HeaderText = "Loan Type";
             LoanTypeCol.Name = "LoanTypeCol";
-            // 
-            // RepaymentCol
-            // 
-            RepaymentCol.HeaderText = "Repayment Period";
-            RepaymentCol.Name = "RepaymentCol";
             // 
             // ActionCol
             // 
@@ -223,8 +217,7 @@
         private DataGridViewTextBoxColumn AmountCol;
         private DataGridViewTextBoxColumn PrincipalAmountCol;
         private DataGridViewTextBoxColumn NameLoanerCol;
-        private DataGridViewTextBoxColumn LoanTypeCol;
-        private DataGridViewTextBoxColumn RepaymentCol;
+    private DataGridViewTextBoxColumn LoanTypeCol;
         private DataGridViewTextBoxColumn ActionCol;
         private Button button2;
         private Button searchLoanbtn;
